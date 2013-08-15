@@ -1,8 +1,8 @@
 #!/bin/bash
 
-#xset led 3
-#setleds -L +caps < /dev/tty7
-#tleds
+# xset led 3
+# setleds -L +caps < /dev/tty7
+# tleds
 
 function do_beep
 {
@@ -13,7 +13,7 @@ function do_beep
 
 	for (( i=0; i < 10; i++ ))
 	{
-		./bin/ledctl ~num &> /dev/null;
+		./bin/ledctl ~num > /dev/null;
 		sleep 0.05;
 	}
 }

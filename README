@@ -1,0 +1,7 @@
+get/set/reset/invert keyboard leds
+
+
+1) Get this : git clone git://github.com/progman/ledctl
+2) Make this: make x64
+3) Use this : ledctl ~num
+4) Enjoy!

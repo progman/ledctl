@@ -19,7 +19,7 @@ int ledctl(int led_name, bool flag_enable, bool flag_set, bool flag_invert)
 	int keyboardDevice = open(KEYBOARDDEVICE, O_RDONLY);
 	if (keyboardDevice == -1)
 	{
-		perror("ERROR[open()]");
+		fprintf(stderr, "ERROR[open(\"%s\")]: %s\n", KEYBOARDDEVICE, strerror(errno));
 		return -1;
 	}
 
@@ -27,7 +27,7 @@ int ledctl(int led_name, bool flag_enable, bool flag_set, bool flag_invert)
 	unsigned int led_val = 0;
 	if (ioctl(keyboardDevice, KDGETLED, &led_val))
 	{
-		perror("ERROR[ioctl(KDGETLED)]");
+		fprintf(stderr, "ERROR[ioctl(KDGETLED)]: %s\n", strerror(errno));
 		return -1;
 	}
 
@@ -59,7 +59,7 @@ int ledctl(int led_name, bool flag_enable, bool flag_set, bool flag_invert)
 
 		if (ioctl(keyboardDevice, KDSETLED, led_val))
 		{
-			perror("ERROR[ioctl(KDSETLED)]");
+			fprintf(stderr, "ERROR[ioctl(KDSETLED)]: %s\n", strerror(errno));
 			return -1;
 		}
 	}

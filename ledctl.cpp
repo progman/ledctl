@@ -84,6 +84,7 @@ int ledctl(int led_name, bool flag_enable, bool flag_set, bool flag_invert)
 // view help
 void help(const char *name)
 {
+	printf("%s    %s\n", PROG_FULL_NAME, PROG_URL);
 	printf ("example: %s [num|-num|+num|~num|cap|-cap|+cap|~cap|scr|-scr|+scr|~scr]\n", name);
 }
 //-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------//
